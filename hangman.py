@@ -3,7 +3,7 @@ def load_word():
     return word
 
 def start_round(loaded_word):
-    hidden_word = "_ " * len(loaded_word)
+    hidden_word = "_" * len(loaded_word)
     print("Round Started")
     print("\n")
     print(hidden_word)
@@ -19,7 +19,7 @@ def start_round(loaded_word):
                 print(guess + " is not in the word")
                 tries -= 1
             else:
-                print(guess + "is in the word")
+                print(guess + " is in the word")
 
                 word_as_list = list(hidden_word)
                 indices = [i for i, letter in enumerate(loaded_word) if letter == guess]
@@ -27,6 +27,14 @@ def start_round(loaded_word):
                     word_as_list[index] = guess
 
                 hidden_word = "".join(word_as_list)
+
+        elif len(guess) == len(loaded_word) and guess.isalpha():
+            if guess != loaded_word:
+                print(guess + " is not the word")
+                tries -= 1
+            else:
+                guessed = True
+                hidden_word = loaded_word
 
         print(hidden_word)
 
