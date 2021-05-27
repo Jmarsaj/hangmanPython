@@ -1,5 +1,9 @@
+import random
+
 def load_word():
-    word = "DOG"
+    wordList = ["DOG", "CAT", "TABLE", "CHAIR", "HOUSE"]   
+    word = random.choice(wordList) 
+    word = word.upper()
     return word
 
 def start_round(loaded_word):
