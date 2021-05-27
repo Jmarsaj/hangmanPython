@@ -28,6 +28,9 @@ def start_round(loaded_word):
 
                 hidden_word = "".join(word_as_list)
 
+                if "_" not in hidden_word:
+                    guessed = True
+
         elif len(guess) == len(loaded_word) and guess.isalpha():
             if guess != loaded_word:
                 print(guess + " is not the word")
@@ -40,3 +43,7 @@ def start_round(loaded_word):
 
 loaded_word = load_word()
 start_round(loaded_word)
+
+while raw_input("Restart game? y/n: ").upper() == "Y":
+    loaded_word = load_word()
+    start_round(loaded_word)
